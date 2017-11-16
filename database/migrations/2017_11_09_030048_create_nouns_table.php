@@ -24,6 +24,7 @@ class CreateNounsTable extends Migration
         $table->string('name');
         $table->integer('str');
         $table->integer('hp');
+        $table->string('image_url');
     });
 }
 
