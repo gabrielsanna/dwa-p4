@@ -18,7 +18,7 @@ class NounsTableSeeder extends Seeder
     			'name' => $noun,
     			'str' => rand(1, 6),
     			'hp' => rand(10, 20),
-    			'image_url' => '/'.$noun.'.png',
+    			'image_url' => '/images/'.$noun.'.png',
     		]);
     	}
     }

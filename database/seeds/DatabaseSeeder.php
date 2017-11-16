@@ -13,5 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
         $this->call(NounsTableSeeder::class);
+        $this->call(AdjectivesTableSeeder::class);
+        $this->call(HighScoresTableSeeder::class);
     }
 }
