@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\HighScore;
 
 class HighScoreController extends Controller
 {
-    //return view('servermanager.query')->with('resultArray', $resultArray);
-
 	public function index () {
-    	return view('gregquest.highscores');
+		$highScores = HighScore::orderBy("score", "desc")->get();
+
+    	return view('gregquest.highscores')->with('highScores', $highScores);
     }
 }
