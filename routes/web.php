@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::any('/highscores', 'HighScoreController@index');
+
+Route::any('/debug', 'HighScoreController@debug');

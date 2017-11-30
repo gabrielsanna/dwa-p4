@@ -12,4 +12,16 @@ class HighScoreController extends Controller
 
     	return view('gregquest.highscores')->with('highScores', $highScores);
     }
+
+    public function newHighScore ($name, $class, $score) {
+    	$highScores = HighScore::orderBy("score", "desc")->get();
+
+    	foreach ($highScores as $highScore) {
+    		if ($highScore[]) {
+    			# code...
+    		}
+    	}
+
+    	return view('gregquest.highscores')->with('highScores', $highScores);
+    }
 }
