@@ -17,8 +17,8 @@ class HighScoreController extends Controller
     	$highScores = HighScore::orderBy("score", "desc")->get();
 
     	foreach ($highScores as $highScore) {
-    		if ($highScore[]) {
-    			# code...
+    		if ($highScore['score'] <= $score) {
+    			echo "hi";
     		}
     	}
 
