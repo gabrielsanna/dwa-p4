@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::any('/highscores', 'HighScoreController@index');
 
 Route::any('/debug', 'HighScoreController@debug');
+
+Route::any('/monster', 'MonsterController@index');

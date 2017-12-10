@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Noun;
+use App\Adjective;
 
 class MonsterController extends Controller
 {
     public function index () {
-		$highScores = HighScore::orderBy("score", "desc")->get();
+		$monsterList = Noun::all();
+		$adjectiveList = Adjective::all();
 
-    	return view('gregquest.highscores')->with('highScores', $highScores);
+		$monster = $monsterList->random();
+		$adjective = $adjectiveList->random();
+
+		return view('gregquest.monster', ['monster' => $monster, 'adjective' => $adjective]);
     }
 }
