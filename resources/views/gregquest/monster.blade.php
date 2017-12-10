@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div id="monster-wrapper">
+    <div class="monster-wrapper">
         <img src="/images/monster.png">
     </div>
 
@@ -14,23 +14,23 @@
         }
     ?>
 
-    <h3>{{ $article }} {{ $adjective['adj'] }} {{ $monster['name'] }} appeared!</h3>
+    <div class="monster-wrapper">
+        <h3>{{ $article }} {{ $adjective['adj'] }} {{ $monster['name'] }} appeared!</h3>
 
-    <p>Strength: {{ $monster['str'] + $adjective['str_mod'] }}<br>
-    HP: {{ $monster['hp'] + $adjective['hp_mod'] }}</p>
+        <p>Strength: {{ $monster['str'] + $adjective['str_mod'] }}<br>
+        HP: {{ $monster['hp'] + $adjective['hp_mod'] }}</p>
 
-    <form method='POST'>
-        <h3>What would you like to do?</h3>
+        <form action="/monster" method='POST'>
+            <h3>What would you like to do?</h3>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select an action...</button>
+            <select class="form-control form-control-lg">
+                <option>Kill it!</option>
+                <option>Run away!</option>
+                <option>Lie down and give up!</option>
+            </select>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Kill it!</a>
-                <a class="dropdown-item" href="#">Run away!</a>
-                <a class="dropdown-item" href="#">Lie down and give up!</a>
-            </div>
-        </div>
-    </form>
+            <input type="submit">
+        </form>
+    </div>
 
 @endsection
