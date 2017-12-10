@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('/highscores', 'HighScoreController@index');
+Route::post('/highscores', 'HighScoreController@newHighScore');
+#Route::any('/highscores', 'HighScoreController@index');
 
 Route::any('/debug', 'HighScoreController@debug');
 
