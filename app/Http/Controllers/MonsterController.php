@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Noun;
 use App\Adjective;
+use HighScoreController;
 
 class MonsterController extends Controller
 {
@@ -52,7 +53,7 @@ class MonsterController extends Controller
     	} elseif ($action == "Run away!") {
     		return redirect()->action('MonsterController@index');
     	} elseif ($action == "Lie down and give up!") {
-    													# <-- Go to "you have died"
+    		return redirect()->action('HighScoreController@lose');
     	}
     }
 }

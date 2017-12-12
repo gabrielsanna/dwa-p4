@@ -13,6 +13,18 @@ class HighScoreController extends Controller
     	return view('gregquest.highscores')->with('highScores', $highScores);
     }
 
+    public function win () {
+        $highScores = HighScore::orderBy("score", "desc")->get();
+
+        return view('gregquest.highscores', ['highScores' => $highScores, '$win' => true]);
+    }
+
+    public function lose () {
+        $highScores = HighScore::orderBy("score", "desc")->get();
+
+        return view('gregquest.highscores', ['highScores' => $highScores, '$win' => false]);
+    }
+
     public function debug () {
         return view('gregquest.debug');
     }

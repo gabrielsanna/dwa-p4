@@ -2,6 +2,18 @@
 
 @section('content')
     <form method='GET'>
+
+        @if( ! empty($win))
+            @if($win == true)
+
+            @endif
+            @if($win == false)
+            <div class='alert alert-danger'>
+                <h3>You were defeated.</h3>
+            </div>
+            @endif
+        @endif
+
         <h3>High Scores</h3>
 
         <table class="table">

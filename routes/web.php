@@ -24,7 +24,7 @@ Route::post('/fight', 'MonsterController@fightResult');
 
 # Routes for high scores
 Route::post('/highscores', 'HighScoreController@newHighScore');
-#Route::any('/highscores', 'HighScoreController@index');
+Route::get('/highscores', 'HighScoreController@index');
 
 # Routes for debug purposes
 Route::any('/debug', 'HighScoreController@debug');

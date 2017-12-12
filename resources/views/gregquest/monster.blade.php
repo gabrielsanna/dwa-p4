@@ -20,7 +20,8 @@
         <p>Strength: {{ $monster['str'] + $adjective['str_mod'] }}<br>
         HP: {{ $monster['hp'] + $adjective['hp_mod'] }}</p>
 
-        <form action="/monster" method='POST'>
+        <form action="/fight" method='POST'>
+            {{ csrf_field() }}
             
             <div class="form-group">
                 <label for="exampleFormControlSelect1">What would you like to do?</label>
