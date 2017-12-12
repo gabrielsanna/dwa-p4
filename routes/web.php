@@ -16,11 +16,15 @@ Route::get('/', function () {
 });
 
 Route::any('/newgame', 'MonsterController@startNewGame');
-Route::post('/buildnewgame', 'MonsterController@buildnewgame');
+Route::post('/buildnewgame', 'MonsterController@buildNewGame');
 
+# Routes for monster encounters
+Route::any('/monster', 'MonsterController@index');
+Route::post('/fight', 'MonsterController@fightResult');
+
+# Routes for high scores
 Route::post('/highscores', 'HighScoreController@newHighScore');
 #Route::any('/highscores', 'HighScoreController@index');
 
+# Routes for debug purposes
 Route::any('/debug', 'HighScoreController@debug');
-
-Route::any('/monster', 'MonsterController@index');
