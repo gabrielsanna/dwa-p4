@@ -18,8 +18,6 @@ class HighScoreController extends Controller
     }
 
     public function newHighScore (Request $request) {
-        dump($request);
-
     	$lowest = HighScore::orderBy("score")->first();
 
         $playerName = $request->input('playerName');
@@ -37,7 +35,6 @@ class HighScoreController extends Controller
             $newScore->created_at = date("Y-m-d H:i:s");
             $newScore->updated_at = date("Y-m-d H:i:s");
 
-            dump($newScore);
             $newScore->save();
 		}
 

@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::any('/newgame', 'MonsterController@startNewGame');
+Route::post('/buildnewgame', 'MonsterController@buildnewgame');
+
 Route::post('/highscores', 'HighScoreController@newHighScore');
 #Route::any('/highscores', 'HighScoreController@index');
 
