@@ -21,15 +21,17 @@
         HP: {{ $monster['hp'] + $adjective['hp_mod'] }}</p>
 
         <form action="/monster" method='POST'>
-            <h3>What would you like to do?</h3>
+            
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">What would you like to do?</label>
+                <select class="form-control form-control-lg" name="action">
+                    <option>Kill it!</option>
+                    <option>Run away!</option>
+                    <option>Lie down and give up!</option>
+                </select>
+            </div>
 
-            <select class="form-control form-control-lg">
-                <option>Kill it!</option>
-                <option>Run away!</option>
-                <option>Lie down and give up!</option>
-            </select>
-
-            <input type="submit">
+            <input type="submit" class="btn btn-primary">
         </form>
     </div>
 
