@@ -19,6 +19,20 @@ class MonsterController extends Controller
 		return view('gregquest.monster', ['monster' => $monster, 'adjective' => $adjective]);
     }
 
+    public function greg () {
+    	$adjectiveList = Adjective::all();
+
+		$monster = array(
+    		"name" => "Greg",
+    		"str" => 999,
+    		"hp" => 999,
+		);
+
+		$adjective = $adjectiveList->random();
+
+		return view('gregquest.monster', ['monster' => $monster, 'adjective' => $adjective]);
+    }
+
     public function startNewGame () {
     	return view('gregquest.start');
     }
@@ -36,24 +50,35 @@ class MonsterController extends Controller
     	$action = $request->input('action');
 
     	if ($action == "Kill it!") {
-    		$monstersToKill = session('key');
+    		$monstersToKill = session('monstersToKill');
 
     		if ($monstersToKill == 2) {
     			session(['monstersToKill' => 1]);
-    			    									# <-- Go to Greg fight
 
+    			return \Redirect::route('greg');
     		} elseif ($monstersToKill == 1) {
-    													# <-- Go to high scores page
+    			# Give the player some points
+    			$score = session('score');
+    			$score = $score + rand (1, 50);
+    			session(['score' => $score]);
+
+    			return \Redirect::route('win');
     		} else {
-    			$monstersToKill = $monstersToKill-1;
+    			# Decrement the number of monsters left to fight
+    			$monstersToKill = $monstersToKill - 1;
     			session(['monstersToKill' => $monstersToKill]);
+
+    			# Give the player some points
+    			$score = session('score');
+    			$score = $score + rand (1, 50);
+    			session(['score' => $score]);
 
     			return redirect()->action('MonsterController@index');
     		}
     	} elseif ($action == "Run away!") {
     		return redirect()->action('MonsterController@index');
     	} elseif ($action == "Lie down and give up!") {
-    		return redirect()->action('HighScoreController@lose');
+    		return \Redirect::route('lose');
     	}
     }
 }

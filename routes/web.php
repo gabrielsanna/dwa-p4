@@ -22,9 +22,24 @@ Route::post('/buildnewgame', 'MonsterController@buildNewGame');
 Route::any('/monster', 'MonsterController@index');
 Route::post('/fight', 'MonsterController@fightResult');
 
+Route::any('/greg',[
+    'as' => 'greg',
+    'uses' => 'MonsterController@greg'
+]);
+
 # Routes for high scores
 Route::post('/highscores', 'HighScoreController@newHighScore');
 Route::get('/highscores', 'HighScoreController@index');
+
+Route::any('/win',[
+    'as' => 'win',
+    'uses' => 'HighScoreController@win'
+]);
+
+Route::any('/lose',[
+    'as' => 'lose',
+    'uses' => 'HighScoreController@lose'
+]);
 
 # Routes for debug purposes
 Route::any('/debug', 'HighScoreController@debug');

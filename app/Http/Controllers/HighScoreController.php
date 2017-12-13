@@ -13,20 +13,60 @@ class HighScoreController extends Controller
     	return view('gregquest.highscores')->with('highScores', $highScores);
     }
 
-    public function win () {
-        $highScores = HighScore::orderBy("score", "desc")->get();
-
-        return view('gregquest.highscores', ['highScores' => $highScores, '$win' => true]);
-    }
-
-    public function lose () {
-        $highScores = HighScore::orderBy("score", "desc")->get();
-
-        return view('gregquest.highscores', ['highScores' => $highScores, '$win' => false]);
-    }
-
     public function debug () {
         return view('gregquest.debug');
+    }
+
+    public function win (Request $request) {
+        $lowest = HighScore::orderBy("score")->first();
+
+        $playerName = session('name');
+        $playerClass = session('class');
+        $playerScore = session('score');
+
+        if ($lowest['score'] <= $playerScore) {
+            $lowest->delete();
+
+            $newScore = new HighScore;
+
+            $newScore->name = $playerName;
+            $newScore->class = $playerClass;
+            $newScore->score = $playerScore;
+            $newScore->created_at = date("Y-m-d H:i:s");
+            $newScore->updated_at = date("Y-m-d H:i:s");
+
+            $newScore->save();
+        }
+
+        $highScores = HighScore::orderBy("score", "desc")->get();
+
+        return view('gregquest.highscores', ['highScores' => $highScores, 'win' => "true"]);
+    }
+
+    public function lose (Request $request) {
+        $lowest = HighScore::orderBy("score")->first();
+
+        $playerName = session('name');
+        $playerClass = session('class');
+        $playerScore = session('score');
+
+        if ($lowest['score'] <= $playerScore) {
+            $lowest->delete();
+
+            $newScore = new HighScore;
+
+            $newScore->name = $playerName;
+            $newScore->class = $playerClass;
+            $newScore->score = $playerScore;
+            $newScore->created_at = date("Y-m-d H:i:s");
+            $newScore->updated_at = date("Y-m-d H:i:s");
+
+            $newScore->save();
+        }
+
+        $highScores = HighScore::orderBy("score", "desc")->get();
+
+        return view('gregquest.highscores', ['highScores' => $highScores, 'win' => "false"]);
     }
 
     public function newHighScore (Request $request) {

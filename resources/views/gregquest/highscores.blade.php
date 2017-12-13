@@ -4,12 +4,14 @@
     <form method='GET'>
 
         @if( ! empty($win))
-            @if($win == true)
-
+            @if($win == "true")
+            <div class='alert alert-success'>
+                <h5 class="text-center">You won!</h5>
+            </div>
             @endif
-            @if($win == false)
+            @if($win == "false")
             <div class='alert alert-danger'>
-                <h3>You were defeated.</h3>
+                <h5 class="text-center">You were defeated.</h5>
             </div>
             @endif
         @endif
