@@ -14,6 +14,19 @@
         }
     ?>
 
+    <div class="alert alert-info monster-wrapper" role="alert">
+        <table class="table">
+            <tr>
+                <td><strong>Score: </strong></td>
+                <td>{{ $score }}</td>
+            </tr>
+            <tr>
+                <td><strong>Monsters remaining: </strong></td>
+                <td>{{ $monstersToKill }}</td>
+            </tr>
+        </table>
+    </div>
+
     <div class="monster-wrapper">
         <h3>{{ $article }} {{ $adjective['adj'] }} {{ $monster['name'] }} appeared!</h3>
 

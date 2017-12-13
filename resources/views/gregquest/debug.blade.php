@@ -30,4 +30,26 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
+    <h4>Update High Score</h4>
+
+    <form action="/highscores" method="POST">
+        {{ csrf_field() }}
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select a player's score to update:</label>
+            <select class="form-control form-control-lg" name="name">
+                @foreach($highScores as $key => $score)
+                <option>{{ $score["name"] }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="playerName">New Score: </label>
+            <input class="form-control" id="score" name="score">
+        </div>        
+
+        <button type="submit" class="btn btn-primary">Submit</button>       
+    </form>
+
 @endsection

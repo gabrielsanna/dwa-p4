@@ -16,7 +16,14 @@ class MonsterController extends Controller
 		$monster = $monsterList->random();
 		$adjective = $adjectiveList->random();
 
-		return view('gregquest.monster', ['monster' => $monster, 'adjective' => $adjective]);
+		$monstersToKill = session('monstersToKill');
+		$score = session('score');
+
+		return view('gregquest.monster', ['monster' => $monster, 
+			                              'adjective' => $adjective, 
+			                              'monstersToKill' => $monstersToKill,
+			                              'score' => $score
+			                          ]);
     }
 
     public function greg () {
@@ -30,8 +37,14 @@ class MonsterController extends Controller
 
 		$adjective = $adjectiveList->random();
 
-		return view('gregquest.monster', ['monster' => $monster, 'adjective' => $adjective]);
-    }
+		$monstersToKill = session('monstersToKill');
+		$score = session('score');
+
+		return view('gregquest.monster', ['monster' => $monster, 
+			                              'adjective' => $adjective, 
+			                              'monstersToKill' => $monstersToKill,
+			                              'score' => $score
+			                          ]);    }
 
     public function startNewGame () {
     	return view('gregquest.start');

@@ -14,7 +14,9 @@ class HighScoreController extends Controller
     }
 
     public function debug () {
-        return view('gregquest.debug');
+        $highScores = HighScore::orderBy("score", "desc")->get();
+        
+        return view('gregquest.debug')->with('highScores', $highScores);
     }
 
     public function win (Request $request) {
@@ -93,5 +95,15 @@ class HighScoreController extends Controller
         // New query to get updated values
         $highScores = HighScore::orderBy("score", "desc")->get();
     	return view('gregquest.highscores')->with('highScores', $highScores);
+    }
+
+    private function updateHighScore (Request $request) {
+        $playerName = $request->input('playerName');
+        $playerScore = $request->input('playerScore');
+
+        $oldScore = HighScore::where('name', $playerName);
+        $oldScore->score = $playerScore;
+
+        $oldScore->save();
     }
 }
