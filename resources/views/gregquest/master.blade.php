@@ -8,7 +8,7 @@
 	<link href="/css/styles.css" type='text/css' rel='stylesheet'>
 </head>
 <body>
-	<div id="wrapper">
+	<div class="container" id="wrapper">
 		<header>
 			<h1>GregQuest</h1>
 		</header>
