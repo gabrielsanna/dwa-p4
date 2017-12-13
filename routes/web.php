@@ -36,12 +36,12 @@ Route::get('/highscores',[
     'uses' => 'HighScoreController@index'
 ]);
 
-Route::any('/win',[
+Route::get('/win',[
     'as' => 'win',
     'uses' => 'HighScoreController@win'
 ]);
 
-Route::any('/lose',[
+Route::get('/lose',[
     'as' => 'lose',
     'uses' => 'HighScoreController@lose'
 ]);

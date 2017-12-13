@@ -19,7 +19,7 @@ class HighScoreController extends Controller
         return view('gregquest.debug')->with('highScores', $highScores);
     }
 
-    public function win (Request $request) {
+    public function win () {
         $lowest = HighScore::orderBy("score")->first();
 
         $playerName = session('name');
@@ -45,7 +45,7 @@ class HighScoreController extends Controller
         return view('gregquest.highscores', ['highScores' => $highScores, 'win' => "true"]);
     }
 
-    public function lose (Request $request) {
+    public function lose () {
         $lowest = HighScore::orderBy("score")->first();
 
         $playerName = session('name');
