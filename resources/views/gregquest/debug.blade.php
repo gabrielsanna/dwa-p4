@@ -32,12 +32,12 @@
 
     <h4>Update High Score</h4>
 
-    <form action="/highscores" method="POST">
+    <form action="/updatehighscore" method="POST">
         {{ csrf_field() }}
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Select a player's score to update:</label>
-            <select class="form-control form-control-lg" name="name">
+            <select class="form-control form-control-lg" name="playerName">
                 @foreach($highScores as $key => $score)
                 <option>{{ $score["name"] }}</option>
                 @endforeach
@@ -46,7 +46,7 @@
 
         <div class="form-group">
             <label for="playerName">New Score: </label>
-            <input class="form-control" id="score" name="score">
+            <input class="form-control" id="score" name="playerScore">
         </div>        
 
         <button type="submit" class="btn btn-primary">Submit</button>       

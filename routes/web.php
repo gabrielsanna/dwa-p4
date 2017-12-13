@@ -29,7 +29,12 @@ Route::any('/greg',[
 
 # Routes for high scores
 Route::post('/highscores', 'HighScoreController@newHighScore');
-Route::get('/highscores', 'HighScoreController@index');
+Route::post('/updatehighscore', 'HighScoreController@updateHighScore');
+
+Route::get('/highscores',[
+    'as' => 'highscores',
+    'uses' => 'HighScoreController@index'
+]);
 
 Route::any('/win',[
     'as' => 'win',
