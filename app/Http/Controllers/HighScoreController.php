@@ -101,11 +101,6 @@ class HighScoreController extends Controller
         $playerName = $request->input('playerName');
         $playerScore = $request->input('playerScore');
 
-#        $oldScore = HighScore::where('name', $playerName);
-#        $oldScore->score = $playerScore;
-
-#        $oldScore->save();
-
         HighScore::where('name', $playerName)->update(['score' => $playerScore]);
 
         return \Redirect::route('highscores');

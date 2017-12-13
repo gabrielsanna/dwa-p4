@@ -11,13 +11,15 @@ class NounsTableSeeder extends Seeder
      */
     public function run()
     {
-    	$nouns = array("dragon", "goblin", "ooze", "gremlin");
+    	$nouns = array("acorn", "alien", "blob", "cactus", "cowbat", "cyclops", "gloogy", "frogthing", 
+                       "spider", "robotbee", "shrug", "sweatbeast"
+                    );
 
     	foreach ($nouns as $noun) {
     		DB::table('nouns')->insert([
     			'name' => $noun,
-    			'str' => rand(1, 6),
-    			'hp' => rand(10, 20),
+    			'str' => rand(5, 20),
+    			'hp' => rand(10, 50),
     			'image_url' => '/images/'.$noun.'.png',
     		]);
     	}
