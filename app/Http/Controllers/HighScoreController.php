@@ -9,10 +9,10 @@ use App\Adjective;
 
 class HighScoreController extends Controller
 {
-	public function index () {
-		$highScores = HighScore::orderBy("score", "desc")->get();
+    public function index () {
+        $highScores = HighScore::orderBy("score", "desc")->get();
 
-    	return view('gregquest.highscores')->with('highScores', $highScores);
+        return view('gregquest.highscores')->with('highScores', $highScores);
     }
 
     public function debug () {
@@ -74,14 +74,14 @@ class HighScoreController extends Controller
     }
 
     public function newHighScore (Request $request) {
-    	$lowest = HighScore::orderBy("score")->first();
+        $lowest = HighScore::orderBy("score")->first();
 
         $playerName = $request->input('playerName');
         $playerClass = $request->input('playerClass');
         $playerScore = $request->input('playerScore');
 
-		if ($lowest['score'] <= $playerScore) {
-			$lowest->delete();
+        if ($lowest['score'] <= $playerScore) {
+            $lowest->delete();
 
             $newScore = new HighScore;
 
@@ -92,11 +92,11 @@ class HighScoreController extends Controller
             $newScore->updated_at = date("Y-m-d H:i:s");
 
             $newScore->save();
-		}
+        }
 
         // New query to get updated values
         $highScores = HighScore::orderBy("score", "desc")->get();
-    	return view('gregquest.highscores')->with('highScores', $highScores);
+        return view('gregquest.highscores')->with('highScores', $highScores);
     }
 
     public function updateHighScore (Request $request) {

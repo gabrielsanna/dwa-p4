@@ -11,17 +11,17 @@ class NounsTableSeeder extends Seeder
      */
     public function run()
     {
-    	$nouns = array("acorn", "alien", "blob", "cactus", "cowbat", "cyclops", "gloogy", "frogthing", 
+        $nouns = array("acorn", "alien", "blob", "cactus", "cowbat", "cyclops", "gloogy", "frogthing", 
                        "stool", "robotbee", "shrug", "sweatbeast", "neckdude"
                     );
 
-    	foreach ($nouns as $noun) {
-    		DB::table('nouns')->insert([
-    			'name' => $noun,
-    			'str' => rand(5, 20),
-    			'hp' => rand(10, 50),
-    			'image_url' => '/images/'.$noun.'.png',
-    		]);
-    	}
+        foreach ($nouns as $noun) {
+            DB::table('nouns')->insert([
+                'name' => $noun,
+                'str' => rand(5, 20),
+                'hp' => rand(10, 50),
+                'image_url' => '/images/'.$noun.'.png',
+            ]);
+        }
     }
 }

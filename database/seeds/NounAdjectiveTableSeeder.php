@@ -47,12 +47,12 @@ class NounAdjectiveTableSeeder extends Seeder
 
         foreach ($nouns as $noun) 
         {
-        	$monster = Noun::where('name', $noun)->first();
+            $monster = Noun::where('name', $noun)->first();
 
-        	$adjective = $adjectives[array_rand($adjectives)];
-        	$adjective = Adjective::where('adj', $adjective)->first();
+            $adjective = $adjectives[array_rand($adjectives)];
+            $adjective = Adjective::where('adj', $adjective)->first();
 
-        	$monster->adjectives()->save($adjective);
+            $monster->adjectives()->save($adjective);
         }
     }
 }

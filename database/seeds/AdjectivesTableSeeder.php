@@ -39,12 +39,12 @@ class AdjectivesTableSeeder extends Seeder
                             "tight", "uneven", "warm", "weak", "wet", "wooden" 
                         );
 
-    	foreach ($adjectives as $adjective) {
-    		DB::table('adjectives')->insert([
-    			'adj' => $adjective,
-    			'str_mod' => rand(-3, 3),
-    			'hp_mod' => rand(-9, 10),
-    		]);
-    	}
+        foreach ($adjectives as $adjective) {
+            DB::table('adjectives')->insert([
+                'adj' => $adjective,
+                'str_mod' => rand(-3, 3),
+                'hp_mod' => rand(-9, 10),
+            ]);
+        }
     }
 }
