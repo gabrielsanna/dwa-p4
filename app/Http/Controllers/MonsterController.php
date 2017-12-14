@@ -54,6 +54,10 @@ class MonsterController extends Controller
     }
 
     public function buildNewGame (Request $request) {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:50',
+        ]);
+
         session(['name' => $request->input('name')]);
         session(['class' => $request->input('class')]);
         session(['score' => 0]);

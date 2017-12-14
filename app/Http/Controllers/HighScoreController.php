@@ -74,6 +74,11 @@ class HighScoreController extends Controller
     }
 
     public function newHighScore (Request $request) {
+        $validatedData = $request->validate([
+            'playerName' => 'required|string|max:50',
+            'playerScore' => 'integer',
+        ]);
+
         $lowest = HighScore::orderBy("score")->first();
 
         $playerName = $request->input('playerName');
