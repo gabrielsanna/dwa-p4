@@ -30,6 +30,7 @@ Route::any('/greg',[
 # Routes for high scores
 Route::post('/highscores', 'HighScoreController@newHighScore');
 Route::post('/updatehighscore', 'HighScoreController@updateHighScore');
+Route::get('/encounters', 'HighScoreController@encounters');
 
 Route::get('/highscores',[
     'as' => 'highscores',

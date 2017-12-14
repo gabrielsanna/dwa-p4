@@ -105,4 +105,10 @@ class HighScoreController extends Controller
 
         return \Redirect::route('highscores');
     }
+
+    public function encounters () {
+        $pastMonsters = Noun::with('adjectives')->get();
+
+        return view('gregquest.encounters')->with('encounters', $pastMonsters);
+    }
 }
