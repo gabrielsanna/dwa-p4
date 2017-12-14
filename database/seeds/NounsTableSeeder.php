@@ -12,7 +12,7 @@ class NounsTableSeeder extends Seeder
     public function run()
     {
     	$nouns = array("acorn", "alien", "blob", "cactus", "cowbat", "cyclops", "gloogy", "frogthing", 
-                       "stool", "robotbee", "shrug", "sweatbeast"
+                       "stool", "robotbee", "shrug", "sweatbeast", "neckdude"
                     );
 
     	foreach ($nouns as $noun) {

@@ -31,3 +31,7 @@ li.gabelist a {
 li.gabelist a:hover:not(.active) {
     background-color: #ddd;
 }
+
+img.monster {
+    margin: 10px;
+}

@@ -14,7 +14,7 @@ class NounAdjectiveTableSeeder extends Seeder
     public function run()
     {
         $nouns = array("acorn", "alien", "blob", "cactus", "cowbat", "cyclops", "gloogy", "frogthing", 
-                       "stool", "robotbee", "shrug", "sweatbeast"
+                       "stool", "robotbee", "shrug", "sweatbeast", "neckdude"
                     );
 
         $adjectives = array("angry", "spunky", "cheerful", "organic", "attractive", "bald", "beautiful", 

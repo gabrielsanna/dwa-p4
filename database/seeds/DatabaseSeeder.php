@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(NounsTableSeeder::class);
         $this->call(AdjectivesTableSeeder::class);
         $this->call(HighScoresTableSeeder::class);
+        $this->call(NounAdjectiveTableSeeder::class);
     }
 }

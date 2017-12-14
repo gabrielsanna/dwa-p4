@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-4">
-            <img src="/images/{{ $monster['name'] }}.png">
+            <img class="monster" src="/images/{{ $monster['name'] }}.png">
 
             <div class="alert alert-info" role="alert">
                 <table>
