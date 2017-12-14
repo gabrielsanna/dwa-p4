@@ -19,6 +19,9 @@ class MonsterController extends Controller
 		$monstersToKill = session('monstersToKill');
 		$score = session('score');
 
+        session(['currentNoun' => $monster['name']]);
+        session(['currentAdjective' => $adjective['adj']]);
+
 		return view('gregquest.monster', ['monster' => $monster, 
 			                              'adjective' => $adjective, 
 			                              'monstersToKill' => $monstersToKill,
@@ -31,8 +34,8 @@ class MonsterController extends Controller
 
 		$monster = array(
     		"name" => "Greg",
-    		"str" => 999,
-    		"hp" => 999,
+    		"str" => 10000,
+    		"hp" => 10000,
 		);
 
 		$adjective = $adjectiveList->random();
@@ -65,6 +68,15 @@ class MonsterController extends Controller
     	if ($action == "Kill it!") {
     		$monstersToKill = session('monstersToKill');
 
+            # Add the most recent noun/adjective pair to the pivot table
+            $currentNoun = session('currentNoun');
+            $currentAdjective = session ('currentAdjective');
+
+            $monster = Noun::where('name', $currentNoun)->first();
+            $adjective = Adjective::where('adj', $currentAdjective)->first();
+            $monster->adjectives()->save($adjective);
+
+            # Decide what happens next based on how many monsters are left
     		if ($monstersToKill == 2) {
     			session(['monstersToKill' => 1]);
 
