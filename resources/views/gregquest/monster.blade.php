@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-4">
-            <img class="monster" src="/images/{{ $monster['name'] }}.png">
+            <img class="monster" src="/images/{{ $monster['name'] }}.png" alt="A scary monster!">
 
             <div class="alert alert-info" role="alert">
                 <table>
@@ -38,7 +38,7 @@
                 {{ csrf_field() }}
                 
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">What would you like to do?</label>
+                    <label>What would you like to do?</label>
                     <select class="form-control form-control-lg" name="action">
                         <option>Kill it!</option>
                         <option>Run away!</option>

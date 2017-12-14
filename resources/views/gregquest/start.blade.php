@@ -8,12 +8,12 @@
         {{ csrf_field() }}
         
         <div class="form-group">
-            <label for="exampleInputEmail1">Player name: </label>
+            <label>Player name: </label>
             <input type="text" class="form-control" name="name">
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Choose a class: </label>
+            <label>Choose a class: </label>
             <select class="form-control form-control-lg" name="class">
                 <option>Fighter</option>
                 <option>Wizard</option>
