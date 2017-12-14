@@ -1,10 +1,33 @@
+#wrapper {
+	max-width: 850px;
+}
+
 h1 {
 	font-family: 'UnifrakturCook', cursive;
 }
 
-#wrapper {
-	width:800px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 30px;
+ul.gabenav {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 0;
+    overflow: hidden;
+}
+
+li.gabelist {
+    float: left;
+}
+
+li.gabelist a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    color: black;
+    text-decoration: none;
+}
+
+li.gabelist a:hover:not(.active) {
+    background-color: #ddd;
 }

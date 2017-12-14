@@ -10,21 +10,12 @@
 </head>
 <body>
 	<div class="container" id="wrapper">
-		<header>
-			<h1>GregQuest</h1>
-		</header>
-
-		<nav class="navbar bg-faded">
-  			<a class="navbar-brand" href="#">GregQuest</a>
-			<ul class="navbar-nav">
- 				<li class="nav-item active">
-    				<a class="nav-link" href="/newgame">Start Over</a>
-  				</li>
-  				<li class="nav-item">
-    				<a class="nav-link" href="#">High Scores</a>
-  				</li>
-			</ul>
-		</nav>
+		<ul class="gabenav">
+			<li class="gabelist"><h1><a href="/">GregQuest</a></h1></li>
+  			<li class="gabelist"><a href="/newgame">New Game</a></li>
+  			<li class="gabelist"><a href="/highscores">High Scores</a></li>
+  			<li class="gabelist"><a href="/encounters">Monsters Fought</a></li>
+		</ul>
 
 		@yield('content')
 
