@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HighScore;
+use App\Noun;
+use App\Adjective;
 
 class HighScoreController extends Controller
 {
