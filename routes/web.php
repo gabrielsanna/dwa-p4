@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('gregquest.welcome');
 });
 
 Route::any('/newgame', 'MonsterController@startNewGame');
